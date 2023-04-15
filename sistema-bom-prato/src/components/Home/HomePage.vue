@@ -5,18 +5,35 @@
     <h3>Seja bem vindo!</h3>
     <p>Escolha os ingredientes que você deseja:</p>
 
-    <form v-on:submit.prevent="addIngredient">
+    <form v-on:submit.prevent="fazerPedido">
+
+      <div class="container">
+      <input
+          v-model="nome"
+          type="text"
+          placeholder="Digite seu nome"
+          class="idInput"/>
+      <input
+          v-model="celular"
+          type="text"
+          placeholder="Informe seu celular"
+          class="idInput"/>
+      </div>
+
     <select v-model="ingrediente">
       <option disabled value="">Escolha um item</option>
       <option v-bind:key="ingrediente in ingredientes" v-for="ingrediente in ingredientes">{{ ingrediente }}</option>
   </select>
 
-    <button type="submit">Adicionar</button>
+    <button type="click" @click="addIngredient">Adicionar</button>
+
+
+
+    <p>Ingredientes selecionados: {{selectedIngredientes.toString()}}</p>
+
+    <button type="submit" @click="fazerPedido">Fazer pedido</button>
 
     </form>
-
-    <p>Ingredientes selecionados: {{selectedIngredientes}}</p>
-
 <!--    <ul>-->
 <!--      <li><router-link to="/sobre">Sobre</router-link></li>-->
 <!--      <li><router-link to="/contato">Contato</router-link></li>-->
@@ -30,6 +47,8 @@
 export default {
   name: 'HomePage',
   data: () => ({
+    nome: '',
+    celular: '',
     ingredientes: [
       "Arroz",
       "Feijão Carioca",
@@ -51,15 +70,13 @@ export default {
 
   },
   methods: {
-    // selectIngredient: function () {
-    //   for(var i = 0; i < this.ingredientes.length; i++){
-    //     console.log(this.ingredientes[i]);
-    //   }
-    // },
     addIngredient: function () {
       const selectedIngrediente = this.ingrediente;
       this.selectedIngredientes.push(selectedIngrediente);
       console.log("Adicionou!")
+    },
+    fazerPedido: function () {
+      console.log(this.nome, this.celular, this.selectedIngredientes.toString());
     }
   }
 }
@@ -85,6 +102,60 @@ export default {
   height: 200px;
   margin: 0 auto;
   display: block;
+}
+
+.container{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+
+  .idInput{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+  }
+}
+
+select{
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin: 10px;
+}
+
+button{
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin: 10px;
+  background-color: #42b983;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  transition: width, height;
+  transition-duration: .5s;
+}
+
+button:hover{
+  width: 210px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin: 10px;
+  background-color: #42b983;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
 }
 
 h3 {
