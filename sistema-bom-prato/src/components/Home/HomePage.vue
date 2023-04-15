@@ -6,15 +6,15 @@
     <p>Escolha os ingredientes que você deseja:</p>
     <select v-model="selected">
       <option disabled value="">Escolha um item</option>
-      <option>Arroz</option>
-      <option>Feijão Carioca</option>
-      <option>Feijão Preto</option>
-      <option>Feijão Tropeiro</option>
-      <option>Macarrão Alho e Óleo</option>
-      <option>Farofa</option>
-      <option>Salada (alface, tomate e repolho)</option>
-      <option>Legumes (beterraba, cenoura)</option>
-      <option>Vinagrete</option>
+      <option value={{ingredientes[0]}}>Arroz</option>
+      <option value={{ingredientes[1]}}}>Feijão Carioca</option>
+      <option value={{ingredientes[2]}}>Feijão Preto</option>
+      <option value={{ingredientes[3]}}>Feijão Tropeiro</option>
+      <option value={{ingredientes[4]}}>Macarrão Alho e Óleo</option>
+      <option value={{ingredientes[5]}}>Farofa</option>
+      <option value={{ingredientes[6]}}>Salada (alface, tomate e repolho)</option>
+      <option value={{ingredientes[7]}}>Legumes (beterraba, cenoura)</option>
+      <option value={{ingredientes[8]}}>Vinagrete</option>
   </select>
 
     <p>Ingredientes selecionados: {{ selected }}</p>
@@ -42,6 +42,7 @@ export default {
     "Legumes (beterraba, cenoura)",
     "Vinagrete"
   ],
+  selected: [],
   props: {
 
   },
