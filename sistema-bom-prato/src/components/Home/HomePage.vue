@@ -6,16 +6,16 @@
     <p>Escolha os ingredientes que você deseja:</p>
 
     <form v-on:submit.prevent="addIngredient">
-    <select v-model="selected">
+    <select v-model="ingrediente">
       <option disabled value="">Escolha um item</option>
-      <option v-bind:key="ingrediente in ingredientes" v-for="ingrediente in ingredientes" value="Arroz">{{ ingrediente }}</option>
+      <option v-bind:key="ingrediente in ingredientes" v-for="ingrediente in ingredientes">{{ ingrediente }}</option>
   </select>
 
-    <button @click="addIngredient()">Adicionar</button>
+    <button type="submit">Adicionar</button>
 
     </form>
 
-    <p>Ingredientes selecionados: {{ ingredientes }}</p>
+    <p>Ingredientes selecionados: {{selectedIngredientes}}</p>
 
 <!--    <ul>-->
 <!--      <li><router-link to="/sobre">Sobre</router-link></li>-->
@@ -41,7 +41,8 @@ export default {
       "Legumes (beterraba, cenoura)",
       "Vinagrete"
     ],
-    newArray: [],
+    ingrediente: '',
+    selectedIngredientes: [],
   }),
   props: {
 
@@ -56,7 +57,8 @@ export default {
     //   }
     // },
     addIngredient: function () {
-      this.ingredientes.push();
+      const selectedIngrediente = this.ingrediente;
+      this.selectedIngredientes.push(selectedIngrediente);
       console.log("Adicionou!")
     }
   }
