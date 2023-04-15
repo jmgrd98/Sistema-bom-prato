@@ -4,20 +4,26 @@
     <img v-bind:src="require('../../assets/logo-restaurante.png')" id="logo"/>
     <h3>Seja bem vindo!</h3>
     <p>Escolha os ingredientes que você deseja:</p>
+
+    <form v-on:submit.prevent="addIngredient">
     <select v-model="selected">
       <option disabled value="">Escolha um item</option>
-      <option value={{ingredientes[0]}}>Arroz</option>
-      <option value={{ingredientes[1]}}}>Feijão Carioca</option>
-      <option value={{ingredientes[2]}}>Feijão Preto</option>
-      <option value={{ingredientes[3]}}>Feijão Tropeiro</option>
-      <option value={{ingredientes[4]}}>Macarrão Alho e Óleo</option>
-      <option value={{ingredientes[5]}}>Farofa</option>
-      <option value={{ingredientes[6]}}>Salada (alface, tomate e repolho)</option>
-      <option value={{ingredientes[7]}}>Legumes (beterraba, cenoura)</option>
-      <option value={{ingredientes[8]}}>Vinagrete</option>
+      <option value="Arroz">Arroz</option>
+      <option value="Feijão Carioca">Feijão Carioca</option>
+      <option value="Feijão Preto">Feijão Preto</option>
+      <option value="Feijão Tropeiro">Feijão Tropeiro</option>
+      <option value="Macarrão Alho e Óleo">Macarrão Alho e Óleo</option>
+      <option value="Farofa">Farofa</option>
+      <option value="Salada (alface, tomate e repolho">Salada (alface, tomate e repolho)</option>
+      <option value="Legumes (beterraba, cenoura)">Legumes (beterraba, cenoura)</option>
+      <option value="Vinagrete">Vinagrete</option>
   </select>
 
-    <p>Ingredientes selecionados: {{ selected }}</p>
+    <button @click="addIngredient()">Adicionar</button>
+
+    </form>
+
+    <p>Ingredientes selecionados: {{ ingredientes }}</p>
 
 <!--    <ul>-->
 <!--      <li><router-link to="/sobre">Sobre</router-link></li>-->
@@ -31,23 +37,24 @@
 
 export default {
   name: 'HomePage',
-  ingredientes: [
-    "Arroz",
-    "Feijão Carioca",
-    "Feijão Preto",
-    "Feijão Tropeiro",
-    "Macarrão Alho e Óleo",
-    "Farofa",
-    "Salada (alface, tomate e repolho)",
-    "Legumes (beterraba, cenoura)",
-    "Vinagrete"
-  ],
-  selected: [],
+  data: () => ({
+    ingredientes: [],
+  }),
   props: {
 
   },
   components: {
 
+  },
+  methods: {
+    // selectIngredient: function () {
+    //   for(var i = 0; i < this.ingredientes.length; i++){
+    //     console.log(this.ingredientes[i]);
+    //   }
+    // },
+    addIngredient: function () {
+      this.selected.push(this.selected);
+    }
   }
 }
 </script>
