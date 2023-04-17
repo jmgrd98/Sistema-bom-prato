@@ -71,10 +71,12 @@ export default {
 
   },
   methods: {
+    selectIngredient: function () {
+      console.log("Selecionou!")
+    },
     addIngredient: function () {
       const selectedIngrediente = this.ingrediente;
       this.selectedIngredientes.push(selectedIngrediente);
-      console.log("Adicionou!")
     },
     fazerPedido: function () {
       console.log(this.nome, this.celular, this.selectedIngredientes.toString());
