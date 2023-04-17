@@ -25,7 +25,7 @@
       <option v-bind:key="ingrediente in ingredientes" v-for="ingrediente in ingredientes">{{ ingrediente }}</option>
   </select>
 
-    <button type="click" @click="addIngredient">Adicionar</button>
+    <button @click="addIngredient">Adicionar</button>
 
 
 
@@ -36,8 +36,8 @@
     </form>
 
     <ul>
-<!--      <li><i class="bi bi-instagram"></i></li>-->
-      <li><router-link to="/contato">Contato</router-link></li>
+      <li></li>
+      <li></li>
     </ul>
 
   </div>
@@ -77,6 +77,8 @@ export default {
     addIngredient: function () {
       const selectedIngrediente = this.ingrediente;
       this.selectedIngredientes.push(selectedIngrediente);
+      this.ingredientes.splice(this.ingredientes.indexOf(selectedIngrediente), 1);
+      console.log(this.ingredientes)
     },
     fazerPedido: function () {
       console.log(this.nome, this.celular, this.selectedIngredientes.toString());
