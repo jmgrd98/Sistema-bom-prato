@@ -4,11 +4,16 @@
 
 <script>
 import HomePage from "@/components/Home/HomePage";
+// import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 export default {
   name: 'App',
   components: {
     HomePage,
+  },
+  import: {
+    // BootstrapVue,
+    // IconsPlugin
   }
 }
 </script>

@@ -34,10 +34,11 @@
     <button type="submit" @click="fazerPedido">Fazer pedido</button>
 
     </form>
-<!--    <ul>-->
-<!--      <li><router-link to="/sobre">Sobre</router-link></li>-->
-<!--      <li><router-link to="/contato">Contato</router-link></li>-->
-<!--    </ul>-->
+
+    <ul>
+<!--      <li><i class="bi bi-instagram"></i></li>-->
+      <li><router-link to="/contato">Contato</router-link></li>
+    </ul>
 
   </div>
 </template>
@@ -56,7 +57,7 @@ export default {
       "Feijão Tropeiro",
       "Macarrão Alho e Óleo",
       "Farofa",
-      "Salada (alface, tomate e repolho",
+      "Salada (alface, tomate e repolho)",
       "Legumes (beterraba, cenoura)",
       "Vinagrete"
     ],
@@ -86,7 +87,9 @@ export default {
 <style scoped>
 
 .home{
-  background-color: #42b983;
+  background: url(../../assets/backgroundd1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -95,6 +98,13 @@ export default {
   margin: 0 auto;
   text-align: center;
   padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .home{
+    background-size: cover;
+    background-position-y: 80%;
+  }
 }
 
 #logo{
@@ -138,7 +148,6 @@ button{
   padding: 5px;
   margin: 10px;
   background-color: #42b983;
-  border: 1px solid white;
   color: white;
   cursor: pointer;
   transition: width, height;
