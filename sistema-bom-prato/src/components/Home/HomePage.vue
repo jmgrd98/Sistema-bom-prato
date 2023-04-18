@@ -5,8 +5,6 @@
     <h3>Seja bem vindo!</h3>
     <p>Escolha os ingredientes que você deseja:</p>
 
-    <form v-on:submit.prevent="fazerPedido">
-
       <div class="container">
       <input
           v-model="nome"
@@ -32,8 +30,6 @@
     <p>Ingredientes selecionados: {{selectedIngredientes.toString()}}</p>
 
     <button type="submit" @click="fazerPedido">Fazer pedido</button>
-
-    </form>
 
     <ul>
       <li></li>
@@ -81,6 +77,7 @@ export default {
       console.log(this.ingredientes)
     },
     fazerPedido: function () {
+      console.log("Fazendo pedido...")
       console.log(this.nome, this.celular, this.selectedIngredientes.toString());
     }
   }
