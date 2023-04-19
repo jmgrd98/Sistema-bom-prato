@@ -74,7 +74,7 @@ export default {
       const selectedIngrediente = this.ingrediente;
       this.selectedIngredientes.push(selectedIngrediente);
       this.ingredientes.splice(this.ingredientes.indexOf(selectedIngrediente), 1);
-      console.log(this.ingredientes)
+      // console.log(this.ingredientes)
     },
     fazerPedido: function () {
       console.log("Fazendo pedido...")
