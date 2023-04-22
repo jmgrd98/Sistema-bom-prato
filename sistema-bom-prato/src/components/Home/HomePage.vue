@@ -32,7 +32,7 @@
     <button type="submit" @click="fazerPedido">Fazer pedido</button>
 
     <ul>
-      <li></li>
+      <li class="instagram icon"></li>
       <li></li>
     </ul>
 
@@ -182,4 +182,12 @@ li {
 a {
   color: #42b983;
 }
+
+.instagram{
+  width: 10px;
+  height: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
 </style>
